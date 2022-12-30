@@ -1,6 +1,7 @@
 package com.martin.sqlrelationships.subject;
 
 import com.martin.sqlrelationships.student.Student;
+import com.martin.sqlrelationships.teacher.Teacher;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -13,13 +14,17 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @ManyToMany
+    @ManyToMany //Subject can have many students and student can have many subjects.
     @JoinTable(
             name = "student_enrolled",
             joinColumns = @JoinColumn(name = "subject_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id")
     )
     private Set<Student> enrolledStudents = new HashSet<>();
+
+    @ManyToOne(cascade = CascadeType.ALL) //ManyToOne because there are may subjects and each subject has only one teacher. One subject can have one teacher.   But one teacher can have many subjects
+    @JoinColumn(name = "teacher_id", referencedColumnName = "id") // "id" is the teachers id
+    private Teacher teacher;
 
     private String name;
 
@@ -45,5 +50,13 @@ public class Subject {
 
     public void enrolledStudent(Student student) {
         enrolledStudents.add(student);
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void assignedTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }

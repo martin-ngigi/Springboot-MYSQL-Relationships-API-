@@ -1,9 +1,11 @@
 package com.martin.sqlrelationships.teacher;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.martin.sqlrelationships.subject.Subject;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Teacher {
@@ -11,6 +13,11 @@ public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
+    //one teacher can have many subjects(OneToMany)
+    @JsonIgnore //to solve recursive error
+    @OneToMany(mappedBy = "teacher")
+    private Set<Subject> subjects = new HashSet<>();
 
     private String name;
 
@@ -28,5 +35,9 @@ public class Teacher {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Subject> getSubjects() {
+        return subjects;
     }
 }
