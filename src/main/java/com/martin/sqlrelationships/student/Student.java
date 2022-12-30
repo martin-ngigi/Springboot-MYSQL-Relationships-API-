@@ -13,6 +13,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
     @JsonIgnore //This will solve the recursive error
     @ManyToMany(mappedBy = "enrolledStudents")
     private  Set<Subject> subjects = new HashSet<>();
