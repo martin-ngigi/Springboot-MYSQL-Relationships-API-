@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Ken\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Simon\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -84,7 +84,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Math\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Geography\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -102,6 +102,72 @@
 								"api",
 								"v1",
 								"subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.1.  Enroll Student to subect",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Math\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/subjects/1/students/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"subjects",
+								"1",
+								"students",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.1.  Enroll Student to subect Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Math\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/subjects/1/teacher/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"subjects",
+								"1",
+								"teacher",
+								"1"
 							]
 						}
 					},
@@ -152,7 +218,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Mr Ken\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Mr David\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
